@@ -1,0 +1,55 @@
+﻿{% extends "base/page_header.html" %}
+{% load staticfiles %}
+
+{% block main_section %}
+<!--BLOG SECTION-->
+<section id="blog" class="padding">
+  <div class="container">
+    <h2 class="hidden">创想博客</h2>
+    <div class="row">
+      {% block article %}
+      {% endblock %}
+      <div class="col-md-4">
+        <aside class="sidebar bg_grey border-radius wow fadeIn" data-wow-delay="300ms">
+          <div class="widget heading_space">
+            <form class="widget_search border-radius" id="searchForm" method="get" action="/blog/">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="search" name="title" class="form-control" placeholder="文章搜索" required>
+{#                <i class="input-group-addon icon-icons185" type="submit"></i>#}
+                <span class="input-group-btn">
+                  <button class="btn btn-lg" id="search_submit" type="submit">搜索</button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="widget heading_space">
+            <h3 class="bottom20">热门文章</h3>
+            {% for article in hot_articles %}
+            <div class="media">
+                <h6 class="bottom5"><a href="{% url 'article_detail' id=article.id %}">{{ article.title }}</a></h6>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="widget heading_space">
+            <h3 class="bottom20">文章标签</h3>
+            <ul class="tags">
+              {% for label in article_label %}
+              <li><a href="{% url 'label_search' label=label.name %}">{{ label.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+<!--BLOG SECTION-->
+{% endblock %}
+
+
+
+
+
+
+

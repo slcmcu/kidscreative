@@ -1,0 +1,124 @@
+{% extends "base/static.html" %}
+{% load staticfiles %}
+
+{% block top_footer %}
+<a href="#" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
+<!--Loader-->
+<div class="loader">
+  <div class="bouncybox">
+      <div class="bouncy"></div>
+    </div>
+</div>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pull-left">
+        <span class="info"><i class="icon-phone2"></i>{{ request.basic_confing.firm_info.telephone }}</span>
+        <span class="info"><i class="icon-mail"></i>{{ request.basic_confing.firm_info.email }}</span>
+        </div>
+        <ul class="social_top pull-right">
+          <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#."><i class="icon-twitter4"></i></a></li>
+          <li><a href="#."><i class="icon-google"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Header-->
+<header>
+  <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
+    <div class="container">
+       <div class="search_btn btn_common"><i class="icon-icons185"></i></div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{%  static 'images/logo-white.png' %}" alt="logo" class="logo logo-display">
+        <img src="{% static 'images/logo.png' %}" class="logo logo-scrolled" alt="">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOut">
+          {% for menu in request.basic_confing.menu %}
+          <li id="{{ menu.code }}"><a href="{{ menu.url }}">{{ menu.menuName }}</a></li>
+          {% endfor %}
+        <!--
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >events</a>
+            <ul class="dropdown-menu">
+              <li><a href="event.html">events</a></li>
+              <li><a href="event_detail.html">Events Detail</a></li>
+            </ul>
+          </li>
+        -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!--Search-->
+<div id="search">
+  <button type="button" class="close">×</button>
+  <form>
+    <input type="search" value="" placeholder="搜索课程...."  required/>
+    <button type="submit" class="btn btn_common blue">搜索</button>
+  </form>
+</div>
+
+{% block main_section %}
+{% endblock %}
+
+<!--Footer-->
+<footer class="padding-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 footer_panel bottom25">
+        <h3 class="heading bottom25">关于我们<span class="divider-left"></span></h3>
+        <a href="{% url 'index' %}" class="footer_logo bottom25"><img src="{% static 'images/logo-white.png' %}" alt="Edua"></a>
+        <p>{{ request.basic_confing.firm_info.comName }}</p>
+        <ul class="social_icon top25">
+          <li><a href="#." class="facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#." class="twitter"><i class="icon-twitter4"></i></a></li>
+          <li><a href="#." class="dribble"><i class="icon-dribbble5"></i></a></li>
+          <li><a href="#." class="instagram"><i class="icon-instagram"></i></a></li>
+          <li><a href="#." class="vimo"><i class="icon-vimeo4"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-4 footer_panel bottom25">
+        <h3 class="heading bottom25">快速导航<span class="divider-left"></span></h3>
+        <ul class="links">
+          {% for menu in request.basic_confing.menu %}
+            {% if menu.quickLink %}
+          <li><a href="{{ menu.url }}"><i class="icon-chevron-small-right"></i>{{ menu.menuName }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-4 footer_panel bottom25">
+        <h3 class="heading bottom25">联系方式<span class="divider-left"></span></h3>
+        <p class=" address"><i class="icon-map-pin"></i>{{ request.basic_confing.firm_info.address }}</p>
+        <p class=" address"><i class="icon-phone"></i>{{ request.basic_confing.firm_info.telephone }}</p>
+        <p class=" address"><i class="icon-mail"></i><a href="mailto:{{ request.basic_confing.firm_info.email }}">
+            {{ request.basic_confing.firm_info.email }}
+        </a></p>
+        <img src="{% static 'images/footer-map.png' %}" alt="we are here" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>版权所有：南京创想乾坤教育咨询有限公司</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--FOOTER ends-->
+{% endblock %}

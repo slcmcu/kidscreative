@@ -1,0 +1,59 @@
+{% extends "blog/blog_right.html" %}
+{% load staticfiles %}
+
+{% block title %}创想博客{% endblock %}
+{% block page_header_title %}<h1>创想博客</h1>{% endblock %}
+{% block page_header_span %}<span><i class="fa fa-angle-double-right"></i>创想博客</span>{% endblock %}
+{% block article %}
+<div class="col-md-8">
+   {% for article in articles_list %}
+    <article class="blog_item heading_space wow fadeInLeft" data-wow-delay="300ms">
+      <div class="row">
+        <div class="col-md-5 col-sm-5 heading_space">
+          <div class="image"><img src="/media/{{ article.front_image }}" alt="blog" class="border_radius"></div>
+        </div>
+        <div class="col-md-7 col-sm-7 heading_space">
+          <h3><a href="{% url 'article_detail' id=article.id %}">{{ article.title }}</a></h3>
+          <ul class="comment margin10">
+            <li><a href="#."><i class="fa fa-calendar-times-o"></i>{{ article.add_time|date:"Y-m-d" }}</a></li>
+              <li><a href="#."><i class="fa fa-eye"></i>{{ article.click_num }}</a></li>
+            {% for label in article.label.all %}
+                <li><a href="{% url 'label_search' label=label.name %}"><i class="fa fa-tag"></i>{{ label.name }}</a></li>
+            {% endfor %}
+          </ul>
+
+          {{ article.content | safe | truncatechars_html:100}}
+          <a class=" btn_common btn_border margin10 border_radius" href="{% url 'article_detail' id=article.id %}">继续阅读</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+
+{#    <div class="pager_nav wow fadeIn" data-wow-delay="600ms">#}
+{#      <ul class="pagination">#}
+{#        <li class="hidden">#}
+{#          <a href="#." aria-label="Previous">#}
+{#          <span aria-hidden="true">&laquo;</span>#}
+{#          </a>#}
+{#        </li>#}
+{#        <li><a href="#.">1</a></li>#}
+{#        <li><a href="#.">2</a></li>#}
+{#        <li><a href="#.">3</a></li>#}
+{#        <li>#}
+{#          <a href="#." aria-label="Next">#}
+{#          <span aria-hidden="true">Next &nbsp; <i class="fa fa-long-arrow-right"></i></span>#}
+{#          </a>#}
+{#        </li>#}
+{#      </ul>#}
+{#    </div>#}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+	$(function() {
+	    $('#BLOG').addClass('active');
+
+	});
+  </script>
+{% endblock %}

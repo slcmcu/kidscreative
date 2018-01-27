@@ -1,0 +1,35 @@
+{% extends "blog/blog_right.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ article_detail.title }}{% endblock %}
+{% block page_header_title %}<h1>创想博客</h1>{% endblock %}
+{% block page_header_span %}<span><i class="fa fa-angle-double-right"></i>创想博客</span>{% endblock %}
+
+{% block article %}
+<div class="col-md-8">
+ <img src="/media/{{ article_detail.top_image }}" class=" border_radius img-responsive bottom15">
+  <h3 class="top30 bottom20">{{ article_detail.title }}</h3>
+    <div class="detail_course">
+    <div class="clearfix">
+      <ul class="comment pull-left">
+        <li><a href="#." class="facebook">创间时间：{{ article_detail.add_time|date:"Y-m-d" }}</a></li>
+        <li><a href="#." class="facebook">修改时间：{{ article_detail.modify_time|date:"Y-m-d" }}</a></li>
+        <li><a href="#." class="facebook">浏览次数：{{ article_detail.click_num }}</a></li>
+        {% for label in article_detail.label.all %}
+        <li><a href="{% url 'label_search' label=label.name %}"><i class="fa fa-tag"></i>{{ label.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {{ article_detail.content|safe }}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+	$(function() {
+	    $('#BLOG').addClass('active');
+
+	});
+  </script>
+{% endblock %}
