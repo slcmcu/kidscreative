@@ -23,8 +23,8 @@ class Articles(models.Model):
     click_num = models.IntegerField(default=0, verbose_name='访问次数')
     content = UEditorField(imagePath="blog/images/", width=1000, height=600,
                            filePath="blog/files/", default='', verbose_name="内容")
-    front_image = models.ImageField(upload_to="blog/images/", null=True, blank=True, verbose_name="封面图")
-    top_image = models.ImageField(upload_to="blog/images/", null=True, blank=True, verbose_name="顶部图")
+    front_image = models.ImageField(upload_to="blog/images/", null=True, blank=True, verbose_name="封面图", help_text='图片尺寸：295 x 230')
+    top_image = models.ImageField(upload_to="blog/images/", null=True, blank=True, verbose_name="顶部图", help_text='图片尺寸：750 x 415')
 
     def __str__(self):
         return self.title

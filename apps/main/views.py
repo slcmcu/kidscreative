@@ -18,6 +18,5 @@ class ContactView(View):
         ret = {'firm_info': firm_info}
         return render(request, 'main/contact.html', ret)
 
-    # 测试
 
 
