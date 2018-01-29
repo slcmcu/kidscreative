@@ -304,6 +304,7 @@ p{
 }
 .bottom20{ margin-bottom:20px;}
 .top20{ margin-top:20px;}
+.top50{ margin-top:50px;}
 .bottom15{ margin-bottom:15px;}
 .no_bottom{ margin-bottom:0;}
 
@@ -854,13 +855,13 @@ ul.comment li:first-child{
 	margin-left:0;
 }
 ul.comment li a{
-	color:#5b5b5b;
+	color:#999;
 	font-size:12px;
 	display:block;
 }
 ul.comment li a > i{
   font-size: 18px;
-  color:#4587d9;
+  color:#999;
   margin-right: 3px;
   vertical-align: middle;
 }

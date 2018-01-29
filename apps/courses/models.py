@@ -34,7 +34,7 @@ class Course(models.Model):
     learn_times = models.IntegerField(default=0, verbose_name=u"学习长度（分钟数）")
     students = models.IntegerField(default=0, verbose_name=u"学习人数")
     fav_nums = models.IntegerField(default=0, verbose_name=u"收藏人数")
-    image = models.ImageField(upload_to="courses/%y/%m", verbose_name=u"封面图")
+    image = models.ImageField(upload_to="courses/%y/%m", null=True, blank=True, verbose_name=u"封面图")
     click_nums = models.IntegerField(default=0, verbose_name=u"点击人数")
     category = models.ForeignKey('Category', null=True, blank=True, verbose_name=u"课程类别")
     tag = models.ManyToManyField('Tag', null=True, blank=True, verbose_name=u"课程标签")

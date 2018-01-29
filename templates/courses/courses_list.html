@@ -1,42 +1,51 @@
 {% extends "base/page_header.html" %}
 {% load staticfiles %}
 
-{% block title %}课程{% endblock %}
-{% block page_header_title %}<h1>课程</h1>{% endblock %}
+{% block title %}课程--创想乾坤{% endblock %}
+{% block page_header_title %}
+    <h1>课程</h1>
+    <form class="templatemo-search-form" role="search" id="searchForm" method="get">
+        <div class="input-group">
+            <button type="submit" class="fa fa-search" id="btnSearch"></button>
+            <input type="text" class="form-control" placeholder="搜索感兴趣的课程内容" name="name" id="srch-term" value="{{ search_name }}">
+        </div>
+    </form>
+{% endblock %}
 {% block page_header_span %}<span><i class="fa fa-angle-double-right"></i>课程</span>{% endblock %}
 
 {% block main_section %}
+
 <!-- Courses -->
 <section id="course_all" class="padding-bottom">
   <div class="container">
     <div class="row">
+      <div class="shizhan-skill clearfix1">
+          <a href="?tag={{ tag_name }}" {% ifequal category_name '' %}class="on"{% endifequal %}>所有分类</a>
+          {% for category in categorys %}
+          <a href="?category={{ category.name }}&tag={{ tag_name }}" {% ifequal category_name category.name %}class="on"{% endifequal %}>{{ category.name }}</a>
+          {% endfor %}
+      </div>
+      <div class="shizhan-skill clearfix1">
+          <a href="?category={{ category_name }}" {% ifequal tag_name '' %}class="on"{% endifequal %}>所有标签</a>
+          {% for tag in tags %}
+          <a href="?tag={{ tag.name }}&category={{ category_name }}" {% ifequal tag_name tag.name %}class="on"{% endifequal %}>{{ tag.name }}</a>
+          {% endfor %}
+      </div>
     {% for course in courses_list %}
       <div class="col-sm-6 col-md-4">
-        <div class="course margin_top wow fadeIn" data-wow-delay="400ms">
+        <div class="course top50 wow fadeIn" data-wow-delay="400ms">
           <div class="image bottom25">
             <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
           </div>
           <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
-          <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
-          <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="course margin_top wow fadeIn" data-wow-delay="400ms">
-          <div class="image bottom25">
-            <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
-          </div>
-          <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
-          <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
-          <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="course margin_top wow fadeIn" data-wow-delay="400ms">
-          <div class="image bottom25">
-            <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
-          </div>
-          <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
+          <ul class="comment margin10">
+            <li><a href="#.">{{ course.get_degree_display }}</a></li>
+
+            <li><a href="#."><i class="fa fa-code"></i>{{ course.category.name }}</a></li>
+            {% for tag in course.tag.all %}
+                <li><a href=""><i class="fa fa-tag"></i>{{ tag.name }}</a></li>
+            {% endfor %}
+          </ul>
           <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
           <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
         </div>

@@ -21,7 +21,7 @@ import xadmin
 
 from blog.views import ArticlesListView, ArticleDetailView, LabelSearchView
 from main.views import IndexPageView, ContactView
-from courses.views import CoursesListView
+from courses.views import CoursesListView, CourseDetailView
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -35,5 +35,6 @@ urlpatterns = [
     url(r'^contact/$', ContactView.as_view(), name='contact'),
 
     url(r'^course/$', CoursesListView.as_view(), name='course'),
+    url(r'^course/detail/$', CourseDetailView.as_view(), name='course_detail'),
 
 ]

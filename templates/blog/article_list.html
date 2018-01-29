@@ -15,7 +15,7 @@
         <div class="col-md-7 col-sm-7 heading_space">
           <h3><a href="{% url 'article_detail' id=article.id %}">{{ article.title }}</a></h3>
           <ul class="comment margin10">
-            <li><a href="#."><i class="fa fa-calendar-times-o"></i>{{ article.add_time|date:"Y-m-d" }}</a></li>
+            <li><a href="#."><i class="fa fa-calendar"></i>{{ article.add_time|date:"Y-m-d" }}</a></li>
               <li><a href="#."><i class="fa fa-eye"></i>{{ article.click_num }}</a></li>
             {% for label in article.label.all %}
                 <li><a href="{% url 'label_search' label=label.name %}"><i class="fa fa-tag"></i>{{ label.name }}</a></li>

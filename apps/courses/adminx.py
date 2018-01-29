@@ -21,6 +21,7 @@ class CourseAdmin(object):
     search_fields = ['name']
     list_filter = ["name", "category", "tag"]
     style_fields = {"detail": "ueditor"}
+    list_editable = ["category"]
 
 xadmin.site.register(Category, CategoryAdmin)
 xadmin.site.register(Tag, TagAdmin)

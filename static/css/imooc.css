@@ -1,0 +1,111 @@
+/*Category*/
+.clearfix1:after {
+  content: '\0020';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix1 {
+  *zoom: 1;
+}
+.shizhan-skill {
+  width: 1152px;
+  margin: 0 auto;
+  padding: 24px 0 10px;
+  border-bottom: 1px solid #D9DDE1;
+}
+.shizhan-skill a {
+  float: left;
+  margin-right: 24px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #4D555D;
+  line-height: 32px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+.shizhan-skill a:last-child {
+  margin-right: 0;
+}
+.shizhan-skill a:hover {
+  background: #D9DDE1;
+}
+.shizhan-skill a.on {
+  color: #fff;
+  background: #2B333B;
+}
+  .shizhan-course-wrap:nth-child(4n) {
+    margin-right: 24px!important;
+  }
+  .shizhan-course-wrap:nth-child(5n) {
+    margin-right: 0!important;
+  }
+
+
+/* Search form */
+.templatemo-search-form {
+	font-size: 1.1em;
+	margin: 10px 0px;
+}
+.templatemo-search-form .input-group { width: 30%; }
+.templatemo-search-form .input-group .form-control {
+	background-color: #18191b;
+	border: none;
+	border-radius: 10px;
+	color: #DDD;
+	padding-left: 50px;
+}
+.form-control:focus {
+  border-color: #13895F;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(19,137,95,.075),0 0 8px rgba(19,137,95,.6);
+}
+.form-control.highlight {
+	background-color: #39ADB4;
+	color: white;
+}
+.form-control.highlight::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ccc;
+}
+.form-control.highlight:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ccc;
+   opacity:  1;
+}
+.form-control.highlight::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ccc;
+   opacity:  1;
+}
+.form-control.highlight:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #ccc;
+}
+.templatemo-search-form .input-group { position: relative; }
+.fa-search {
+    height:32px;
+    width:32px;
+    border: none;
+    cursor: pointer;
+    color:white;
+    background:transparent;
+    position:absolute;
+    top: 0;
+	left: 0;
+	z-index: 100;
+}
+.mobile-menu-icon {
+	cursor:pointer;
+	display:none;
+}
+.templatemo-left-nav li { font-weight: 300; }
+.templatemo-left-nav a.active,
+.templatemo-left-nav a:hover {
+	background: #18191b;
+	border-left: 8px solid #13895F;
+}
+.templatemo-left-nav a {
+	color: #e9e9ea;
+	display: block;
+	padding: 30px;
+	transition: all 0.3s ease;
+}
+.templatemo-left-nav .fa { margin-right: 15px; }
