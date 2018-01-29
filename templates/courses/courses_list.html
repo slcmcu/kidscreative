@@ -1,0 +1,59 @@
+{% extends "base/page_header.html" %}
+{% load staticfiles %}
+
+{% block title %}课程{% endblock %}
+{% block page_header_title %}<h1>课程</h1>{% endblock %}
+{% block page_header_span %}<span><i class="fa fa-angle-double-right"></i>课程</span>{% endblock %}
+
+{% block main_section %}
+<!-- Courses -->
+<section id="course_all" class="padding-bottom">
+  <div class="container">
+    <div class="row">
+    {% for course in courses_list %}
+      <div class="col-sm-6 col-md-4">
+        <div class="course margin_top wow fadeIn" data-wow-delay="400ms">
+          <div class="image bottom25">
+            <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
+          </div>
+          <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
+          <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
+          <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="course margin_top wow fadeIn" data-wow-delay="400ms">
+          <div class="image bottom25">
+            <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
+          </div>
+          <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
+          <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
+          <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="course margin_top wow fadeIn" data-wow-delay="400ms">
+          <div class="image bottom25">
+            <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
+          </div>
+          <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
+          <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
+          <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- Courses ends -->
+
+{% endblock %}
+
+{% block javascripts %}
+  <script type="text/javascript">
+	$(function() {
+	    $('#COURSES').addClass('active');
+
+	});
+  </script>
+{% endblock %}

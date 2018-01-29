@@ -179,61 +179,47 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="heading heading_space wow fadeInDown">Popular Courses<span class="divider-left"></span></h2>
+        <h2 class="heading heading_space wow fadeInDown">热门课程<span class="divider-left"></span></h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="slider_wrapper">
           <div id="course_slider" class="owl-carousel">
+          {% for course in hot_courses %}
             <div class="item">
               <div class="image bottom20">
-                <img src="{% static 'images/course1.jpg' %}" alt="Courses" class="img-responsive border_radius">
+                <img src="/media/{{ course.image }}" alt="Courses" class="img-responsive border_radius">
               </div>
-              <h3 class="bottom15"><a href="course_detail.html">Introduction LearnPress</a></h3>
-              <p class="bottom15">We offer the most complete house renovating services in the country, from kitchen design to bathroom remodeling.</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">Read More</a>
+              <h3 class="bottom15"><a href="course_detail.html">{{ course.name }}</a></h3>
+              <p class="bottom15" style="font-size:14px">{{ course.desc }}</p>
+              <a href="course_detail.html" class="btn_common blue border_radius">查看详情</a>
             </div>
             <div class="item">
               <div class="image bottom20">
-                <img src="{% static 'images/course2.jpg' %}" alt="Courses" class="img-responsive border_radius">
+                <img src="/media/{{ course.image }}" alt="Courses" class="img-responsive border_radius">
               </div>
-              <h3 class="bottom15"><a href="course_detail.html">Introduction LearnPress</a></h3>
-              <p class="bottom15">We offer the most complete house renovating services in the country, from kitchen design to bathroom remodeling.</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">Read More</a>
+              <h3 class="bottom15"><a href="course_detail.html">{{ course.name }}</a></h3>
+              <p class="bottom15" style="font-size:14px">{{ course.desc }}</p>
+              <a href="course_detail.html" class="btn_common blue border_radius">查看详情</a>
             </div>
             <div class="item">
               <div class="image bottom20">
-                <img src="{% static 'images/course3.jpg' %}" alt="Courses" class="img-responsive border_radius">
+                <img src="/media/{{ course.image }}" alt="Courses" class="img-responsive border_radius">
               </div>
-              <h3 class="bottom15"><a href="course_detail.html">Introduction LearnPress</a></h3>
-              <p class="bottom15">We offer the most complete house renovating services in the country, from kitchen design to bathroom remodeling.</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">Read More</a>
+              <h3 class="bottom15"><a href="course_detail.html">{{ course.name }}</a></h3>
+              <p class="bottom15" style="font-size:14px">{{ course.desc }}</p>
+              <a href="course_detail.html" class="btn_common blue border_radius">查看详情</a>
             </div>
             <div class="item">
               <div class="image bottom20">
-                <img src="{% static 'images/course1.jpg' %}" alt="Courses" class="img-responsive border_radius">
+                <img src="/media/{{ course.image }}" alt="Courses" class="img-responsive border_radius">
               </div>
-              <h3 class="bottom15"><a href="course_detail.html">Introduction LearnPress</a></h3>
-              <p class="bottom15">We offer the most complete house renovating services in the country, from kitchen design to bathroom remodeling.</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">Read More</a>
+              <h3 class="bottom15"><a href="course_detail.html">{{ course.name }}</a></h3>
+              <p class="bottom15" style="font-size:14px">{{ course.desc }}</p>
+              <a href="course_detail.html" class="btn_common blue border_radius">查看详情</a>
             </div>
-            <div class="item">
-              <div class="image bottom20">
-                <img src="{% static 'images/course2.jpg' %}" alt="Courses" class="img-responsive border_radius">
-              </div>
-              <h3 class="bottom15"><a href="course_detail.html">Introduction LearnPress</a></h3>
-              <p class="bottom15">We offer the most complete house renovating services in the country, from kitchen design to bathroom remodeling.</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">Read More</a>
-            </div>
-            <div class="item">
-              <div class="image bottom20">
-                <img src="{% static 'images/course3.jpg' %}" alt="Courses" class="img-responsive border_radius">
-              </div>
-              <h3 class="bottom15"><a href="course_detail.html">Introduction LearnPress</a></h3>
-              <p class="bottom15">We offer the most complete house renovating services in the country, from kitchen design to bathroom remodeling.</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">Read More</a>
-            </div>
+          {% endfor %}
           </div>
         </div>
       </div>

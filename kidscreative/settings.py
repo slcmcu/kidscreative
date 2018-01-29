@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.blog.apps.BlogConfig',
     'apps.sysconf.apps.SysconfConfig',
     'apps.main.apps.MainConfig',
+    'apps.courses.apps.CoursesConfig',
     'DjangoUeditor',
     'pure_pagination',
 ]
