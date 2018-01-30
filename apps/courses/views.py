@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 
 from .models import Course, Category, Tag
 
@@ -19,7 +20,9 @@ class CoursesListView(View):
         search_name = request.GET.get('name', '')
         if search_name:
             courses_list = courses_list.filter(
-                Q(name__icontains=search_name) | Q(category__name__icontains=search_name) | Q(tag__name__icontains=search_name)
+                Q(name__icontains=search_name) |
+                Q(category__name__icontains=search_name) |
+                Q(tag__name__icontains=search_name)
             )
 
         ret = {
@@ -34,5 +37,9 @@ class CoursesListView(View):
 
 
 class CourseDetailView(View):
-    def get(self, request):
-        return render(request, 'courses/course_detail.html')
+    def get(self, request, id):
+        course_detail = get_object_or_404(Course, id=id)
+        ret = {
+            'course_detail': course_detail
+        }
+        return render(request, 'courses/course_detail.html', ret)

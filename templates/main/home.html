@@ -191,9 +191,9 @@
               <div class="image bottom20">
                 <img src="/media/{{ course.image }}" alt="Courses" class="img-responsive border_radius">
               </div>
-              <h3 class="bottom15"><a href="course_detail.html">{{ course.name }}</a></h3>
+              <h3 class="bottom15"><a href="{% url 'course_detail' id=course.id %}">{{ course.name }}</a></h3>
               <p class="bottom15" style="font-size:14px">{{ course.desc }}</p>
-              <a href="course_detail.html" class="btn_common blue border_radius">查看详情</a>
+              <a href="{% url 'course_detail' id=course.id %}" class="btn_common blue border_radius">查看详情</a>
             </div>
           {% endfor %}
           </div>

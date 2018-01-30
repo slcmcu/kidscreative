@@ -17,11 +17,11 @@ class TagAdmin(object):
 
 
 class CourseAdmin(object):
-    list_display = ["id", "name", 'degree', 'category', 'tag', 'add_time']
+    list_display = ["id", "name", 'degree', 'category', 'tag', 'is_hot', 'add_time']
     search_fields = ['name']
     list_filter = ["name", "category", "tag"]
     style_fields = {"detail": "ueditor"}
-    list_editable = ["category"]
+    list_editable = ["category", 'is_hot']
 
 xadmin.site.register(Category, CategoryAdmin)
 xadmin.site.register(Tag, TagAdmin)

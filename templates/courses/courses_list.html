@@ -37,7 +37,7 @@
           <div class="image bottom25">
             <img src="/media/{{ course.image }}" alt="Course" class="border_radius">
           </div>
-          <h3 class="bottom10"><a href="course_detail.html">{{ course.name }}</a></h3>
+          <h3 class="bottom10"><a href="{% url 'course_detail' id=course.id %}">{{ course.name }}</a></h3>
           <ul class="comment margin10">
             <li><a href="#.">{{ course.get_degree_display }}</a></li>
 
@@ -46,8 +46,8 @@
                 <li><a href=""><i class="fa fa-tag"></i>{{ tag.name }}</a></li>
             {% endfor %}
           </ul>
-          <p class="bottom20" style="font-size:14px">{{ course.desc | safe }}</p>
-          <a class="btn_common yellow border_radius" href="course_detail.html">查看详情</a>
+          <p class="bottom20">{{ course.desc | safe }}</p>
+          <a class="btn_common yellow border_radius" href="{% url 'course_detail' id=course.id %}">查看详情</a>
         </div>
       </div>
     {% endfor %}

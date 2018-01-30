@@ -190,7 +190,7 @@ nav.bootsnav .megamenu-content .title{
 
 p{
 	font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
-	font-size:1em;
+	font-size:14px;
 	margin-top:10px;
 }
 
@@ -860,7 +860,7 @@ ul.comment li a{
 	display:block;
 }
 ul.comment li a > i{
-  font-size: 18px;
+  font-size: 12px;
   color:#999;
   margin-right: 3px;
   vertical-align: middle;

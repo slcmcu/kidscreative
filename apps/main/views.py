@@ -8,7 +8,7 @@ from courses.models import Course
 class IndexPageView(View):
     def get(self, request):
         latest_articles = Articles.objects.order_by('-add_time')[0:6]
-        hot_courses = Course.objects.all()[0:6]
+        hot_courses = Course.objects.filter(is_hot=True)
         ret = {
             "latest_articles": latest_articles,
             "hot_courses": hot_courses

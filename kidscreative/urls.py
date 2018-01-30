@@ -35,6 +35,6 @@ urlpatterns = [
     url(r'^contact/$', ContactView.as_view(), name='contact'),
 
     url(r'^course/$', CoursesListView.as_view(), name='course'),
-    url(r'^course/detail/$', CourseDetailView.as_view(), name='course_detail'),
+    url(r'^course/detail_(?P<id>\d+)/$', CourseDetailView.as_view(), name='course_detail'),
 
 ]
