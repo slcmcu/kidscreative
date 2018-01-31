@@ -34,7 +34,7 @@
             <h3 class="bottom20">文章标签</h3>
             <ul class="tags">
               {% for label in article_label %}
-              <li><a href="{% url 'label_search' label=label.name %}">{{ label.name }}</a></li>
+              <li class="active"><a href="{% url 'label_search' label=label.name %}">{{ label.name }}</a></li>
               {% endfor %}
             </ul>
           </div>

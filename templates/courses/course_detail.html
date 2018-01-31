@@ -1,7 +1,7 @@
 ﻿{% extends "base/page_header.html" %}
 {% load staticfiles %}
 
-{% block title %}课程--创想乾坤{% endblock %}
+{% block title %}{{ course_detail.name }}{% endblock %}
 {% block page_header_title %}
     <h1>课程</h1>
     <form class="templatemo-search-form" role="search" id="searchForm" method="get">
@@ -31,7 +31,7 @@
             <li><a href="#.">{{ course_detail.get_degree_display }}</a></li>
             <li><a href="#."><i class="fa fa-code"></i>{{ course_detail.category.name }}</a></li>
             {% for tag in course_detail.tag.all %}
-                <li><a href=""><i class="fa fa-tag"></i>{{ tag.name }}</a></li>
+                <li><a href="#."><i class="fa fa-tag"></i>{{ tag.name }}</a></li>
             {% endfor %}
           </ul>
         <div class="share clearfix margin10">
